@@ -1,0 +1,82 @@
+.auth .row .col-12 h1 {
+  color: #DDDDDD;
+}
+.auth .row .col-12 form {
+  max-width: 400px !important;
+}
+.auth .row .col-12 form input {
+  background: transparent;
+  color: #DDDDDD;
+  width: 48%;
+  height: 40px;
+  padding: 0 10px;
+  border-bottom: 1px solid #919190;
+  outline: none;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+.auth .row .col-12 form .email, .auth .row .col-12 form .username {
+  width: 100%;
+}
+.auth .row .col-12 form button {
+  position: relative;
+  width: 150px;
+  height: 40px;
+  border: 1px solid #919190;
+  border-radius: 5px;
+  outline: none;
+  color: #DDDDDD;
+  background: transparent;
+  margin-top: 20px !important;
+}
+.auth .row .col-12 form button:hover::after {
+  opacity: 1;
+  left: -5%;
+}
+.auth .row .col-12 form button:hover::before {
+  opacity: 1;
+  right: -5% !important;
+}
+.auth .row .col-12 form button::after {
+  border-left: 1px solid #919190;
+  border-radius: 5px;
+  content: "";
+  position: absolute;
+  opacity: 0;
+  transition: 0.3s;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+.auth .row .col-12 form button::before {
+  border-right: 1px solid #919190;
+  border-radius: 5px;
+  content: "";
+  position: absolute;
+  opacity: 0;
+  transition: 0.3s;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+.auth .row .col-12 form button:disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.login input {
+  width: 70% !important;
+}
+
+body {
+  background: #191919 !important;
+}
+
+/*# sourceMappingURL=style.css.map */

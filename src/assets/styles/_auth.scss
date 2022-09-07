@@ -1,0 +1,86 @@
+.auth{
+  .row{
+    .col-12{
+      h1{
+        color: #DDDDDD;
+      }
+      form{
+        max-width: 400px !important;
+        input{
+          background: transparent;
+          color: #DDDDDD;
+          width: 48%;
+          height: 40px;
+          padding: 0 10px;
+          border-bottom: 1px solid 	#919190;
+          outline: none;
+          border-top: none;
+          border-right: none;
+          border-left: none;
+        }
+        .email,.username{
+          width: 100%;
+        }
+        button{
+          position: relative;
+          width: 150px;
+          height: 40px;
+          border: 1px solid #919190;
+          border-radius: 5px;
+          outline: none;
+          color: #DDDDDD;
+          background: transparent;
+          margin-top: 20px !important;
+        }
+        button:hover::after{
+          opacity: 1;
+          left: -5%;
+        }
+        button:hover::before{
+          opacity: 1;
+          right: -5% !important;
+        }
+        button::after{
+          border-left: 1px solid #919190;
+          border-radius: 5px;
+          content: '';
+          position: absolute;
+          opacity: 0;
+          transition: 0.3s;
+          width: 100%;
+          height: 100%;
+          background: transparent;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          //bottom: 10%;
+        }
+        button::before{
+          border-right: 1px solid #919190;
+          border-radius: 5px;
+          content: '';
+          position: absolute;
+          opacity: 0;
+          transition: 0.3s;
+          width: 100%;
+          height: 100%;
+          background: transparent;
+          top: 0;
+          bottom: 0;
+          right: 0;
+        }
+        button:disabled{
+          pointer-events: none;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+
+.login{
+
+  input{
+    width: 70% !important;
+  }
+}
