@@ -42,8 +42,12 @@ function Login(props) {
                 <div className="col-12 w-100 d-flex flex-column justify-content-center align-items-center ms-auto me-auto">
                     <h1>Sign In</h1>
                     <form onSubmit={login} autoComplete="off" className="d-flex flex-row flex-wrap justify-content-center">
-                        <input className="m-2 ms-0 me-0" required type="email"  placeholder="email" onChange={e=>setEmail(e.target.value)}/>
-                        <input className="m-2 ms-0 me-0" required type="password" placeholder="password" onChange={e=>setPassword(e.target.value)}/>
+                        <div className="input m-2 ms-0 me-0">
+                            <input required type="email"  placeholder="email" onChange={e=>setEmail(e.target.value)}/>
+                        </div>
+                        <div className="input m-2 ms-0 me-0">
+                            <input required type="password" placeholder="password" onChange={e=>setPassword(e.target.value)}/>
+                        </div>
                         <div className="button w-100 d-flex justify-content-center">
                             <button type="submit" disabled={loading}>Sign In</button>
                         </div>
