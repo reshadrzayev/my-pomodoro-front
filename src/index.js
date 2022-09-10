@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {BrowserRouter,Routes,Route} from "react-router-dom";
+import {BrowserRouter,Routes,Route,Link} from "react-router-dom";
 
 import App from './App';
 import Navbar from "./components/Navbar";
@@ -18,6 +18,7 @@ import Login from "./pages/auth/Login";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
+        {window.location.pathname === "/" && <Link to="/">Home</Link>}
         <Routes>
             <Route exact={true} path="/" element={<App/>}/>
             <Route path="/auth/register" element={<Register/>}/>
