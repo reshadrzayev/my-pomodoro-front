@@ -102,6 +102,10 @@
   text-decoration: none;
 }
 
+.create-pomodoro select, .create-pomodoro input {
+  color: black;
+}
+
 .from-button {
   position: relative;
   width: 150px;

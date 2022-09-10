@@ -5,6 +5,8 @@ import App from "../App";
 import axios from "axios";
 import cookie from "js-cookie";
 import {useNavigate} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {removeUser} from "../redux/userLogin";
 
 function Navbar(props) {
     const navigate = useNavigate()
@@ -12,9 +14,16 @@ function Navbar(props) {
     const onclickHandler = () => {
         setIsActive(!isActive)
     }
-    useEffect(() => {
 
-    }, [window.location.pathname])
+    const dispatch = useDispatch()
+
+    const logOut = () =>{
+        localStorage.removeItem("token")
+        cookie.remove('token');
+        cookie.remove('refresh')
+        dispatch(removeUser())
+        navigate('/auth/login')
+    }
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-transparent container">
@@ -29,7 +38,7 @@ function Navbar(props) {
                         <NavLink to="/" className='nav-link-in'> <a className='nav-link'>Home</a></NavLink>
                     </li>
                     {
-                        !cookie.get('token') && <>
+                        !localStorage.getItem('token') && <>
                             <li className="nav-item">
                                 <NavLink to="/auth/login" className="nav-link-in" onClick={onclickHandler}> <a
                                     className={`nav-link`}>Login</a></NavLink>
@@ -41,15 +50,18 @@ function Navbar(props) {
                         </>
                     }
                     {
-                        cookie.get('token') && <li>
-                            <p className="nav-link-in m-0 p-0" onClick={() => {
-                                cookie.remove('token');
-                                cookie.remove('refresh')
-                                navigate('/auth/login')
-                            }}>
-                                <a className="nav-link" >Log Out</a>
-                            </p>
-                        </li>
+                        localStorage.getItem('token') && <>
+                            <li>
+                                <NavLink to="/create-pomodoro" className="nav-link-in m-0 p-0">
+                                    <a className="nav-link" >Create Pomodoro</a>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <p className="nav-link-in m-0 p-0" onClick={logOut}>
+                                    <a className="nav-link" >Log Out</a>
+                                </p>
+                            </li>
+                        </>
                     }
                 </ul>
             </div>

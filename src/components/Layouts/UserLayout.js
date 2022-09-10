@@ -18,19 +18,20 @@ function UserLayout({children, loading, setLoading}) {
     let pathname = window.location.pathname
 
     useEffect(() => {
-        if (cookie.get('token')) {
+        if (localStorage.getItem('token')) {
             if (pathname === '/auth/login' || pathname === "/auth/register" || pathname === "/account/confirmemail") {
                 navigate('/', {replace: true})
             }
         }
-    }, [pathname, cookie.get('token')])
+    }, [pathname, localStorage.getItem('token')])
 
 
     useEffect(() => {
         if (pathname !== "/auth/login" || pathname !== "/auth/register") {
             setGlobalLoader(false)
         }
-    }, [window.location.pathname])
+        console.log(localStorage.getItem('token'))
+    }, [pathname])
 
     return (
         globalLoader ? <Loader/> :

@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import UserLayout from "../../components/Layouts/UserLayout";
 import FormButton from "../../components/FormButton";
 import cookie from 'js-cookie'
+import {useDispatch,useSelector} from "react-redux";
+import {setUser} from "../../redux/userLogin";
 
 function Login(props) {
     const navigate = useNavigate();
@@ -12,6 +14,9 @@ function Login(props) {
     const[loader,setLoader]=useState(false)
 
     const[data,setData]=useState([])
+
+    const dispatch = useDispatch()
+    const {user} = useSelector(state=>state.login)
 
     const login = async (e) =>{
         if (e){
@@ -27,8 +32,11 @@ function Login(props) {
                 }
             })
             setData(response.data)
+            localStorage.setItem('token',response.data.jwt.token)
+            cookie.set('refresh',response.data.refreshToken.token)
             cookie.set('token',response.data.jwt.token)
             cookie.set('refresh',response.data.refreshToken.token)
+            dispatch(setUser(response.data))
             alert("logged in")
             navigate("/", { replace: true });
             setLoader(false)
