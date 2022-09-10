@@ -1,0 +1,22 @@
+.loader{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .donut {
+    width: 5rem;
+    height: 5rem;
+    margin-bottom: 10rem;
+    border-radius: 50%;
+    border: 0.3rem solid rgba(white, 0.3);
+    border-top-color: white;
+    animation: 1.5s spin infinite linear;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}

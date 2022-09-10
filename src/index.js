@@ -18,7 +18,6 @@ import Login from "./pages/auth/Login";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
-        <Navbar/>
         <Routes>
             <Route exact={true} path="/" element={<App/>}/>
             <Route path="/auth/register" element={<Register/>}/>

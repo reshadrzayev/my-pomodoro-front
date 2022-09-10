@@ -1,10 +1,14 @@
 import React from 'react'
+import UserLayout from "./components/Layouts/UserLayout";
+
 function App() {
-  return (
-    <div>
-      <h1>WELCOME TO THE MY POMODORO</h1>
-    </div>
-  );
+    return (
+        <UserLayout>
+            <div>
+                <h1>WELCOME TO THE MY POMODORO</h1>
+            </div>
+        </UserLayout>
+    );
 }
 
 export default App;

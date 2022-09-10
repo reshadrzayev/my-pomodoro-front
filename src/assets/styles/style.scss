@@ -1,5 +1,24 @@
+//PAGES
 @import "auth";
+@import "navbar";
+@import "confirmEmail";
+
+
+
+//COMPONENTS
+@import "formButton";
+@import "loader";
+
 
 body{
   background: #1c0034 !important;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  color: #dddddd;
 }
