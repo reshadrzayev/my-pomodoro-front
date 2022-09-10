@@ -10,13 +10,22 @@ function ConfirmEmail(props) {
     const[params,setParams]=useSearchParams()
     const[loading,setLoading]=useState(true)
     const navigate = useNavigate();
+    const[email,setEmail]=useState()
+    const[code,setCode]=useState()
+
+    const url = new URL(window.location.href);
+
+    useEffect(()=>{
+        console.log(url.searchParams.get('email'))
+        console.log(url.searchParams.get('code'))
+        confirmEmail()
+    },[])
 
     const confirmEmail = async () =>{
-        // setLoading(true)
         try{
             await axios.post('https://mypomodoroapi.nijat.net/api/Account/confirmemail',{
-                "email":params.get("email"),
-                "code":params.get("amp;code")
+                "email": url.searchParams.get('email'),
+                "code": url.searchParams.get('code')
             },{
                 headers:{
                     "Content-Type":"application/json"
@@ -33,9 +42,6 @@ function ConfirmEmail(props) {
         }
     }
 
-    useEffect(()=>{
-        confirmEmail()
-    },[])
 
     return (
         <UserLayout loading={loading} setLoading={setLoading}>
